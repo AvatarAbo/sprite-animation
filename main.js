@@ -1,5 +1,6 @@
 var ASSET_MANAGER = new AssetManager();
 
+ASSET_MANAGER.queueDownload("./sprites/DungeonBackground.png");
 ASSET_MANAGER.queueDownload("./sprites/skeleton.png");
 
 ASSET_MANAGER.downloadAll(function () {

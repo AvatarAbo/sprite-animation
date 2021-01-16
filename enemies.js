@@ -3,9 +3,10 @@ class Skeleton {
         Object.assign(this, { game, x, y });
 
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/skeleton.png");
+        this.background = ASSET_MANAGER.getAsset("./sprites/DungeonBackground.png");
 
         this.facing = 0; // 0 = right, 1 = left, 2 = down, 3 = up
-
+        this.steps = 0; // number of steps skeleton has taken
         this.animations = [];
         this.loadAnimations();
         //this.animation = new Animator(this.spritesheet, 80, 205, 30, 50, 8, 0.15, 34, false, true);
@@ -31,8 +32,13 @@ class Skeleton {
     }
 
     draw(ctx) {
-        this.animations[this.facing].drawFrame(this.game.clockTick, ctx, 100, 100, 3);
+        ctx.drawImage(this.background, 0, 0, 288 * 3.6, 160 * 3.6);
 
+        this.animations[this.facing].drawFrame(this.game.clockTick, ctx, -100  + this.steps * 2, 300, 4);
+        this.steps++;
+        if (this.steps === 550) {
+            this.steps = 0;
+        }
         //for testing boundaries of skeleton
         // ctx.fillStyle = "Black";
         // ctx.strokeStyle = "Black";
