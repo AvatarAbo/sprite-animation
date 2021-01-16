@@ -33,9 +33,10 @@ class Skeleton {
     draw(ctx) {
         this.animations[this.facing].drawFrame(this.game.clockTick, ctx, 100, 100, 3);
 
-        ctx.fillStyle = "Black";
-        ctx.strokeStyle = "Black";
-        ctx.strokeRect(100, 100, 30 * 3, 50 * 3);
+        //for testing boundaries of skeleton
+        // ctx.fillStyle = "Black";
+        // ctx.strokeStyle = "Black";
+        // ctx.strokeRect(100, 100, 30 * 3, 50 * 3);
 
         //ctx.drawImage(this.spritesheet, 20, 205, 25, 50, 100, 100, 25 * 2, 50 * 2);
 
